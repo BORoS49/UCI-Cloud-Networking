@@ -34,7 +34,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 |      Ubuntu      	|    ELK Server   	| 10.10.2.x/24 	|     Private    	|  ELK-SG  	|    Server   	|
 |      Ubuntu      	|  DVWA 1 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
 |      Ubuntu      	|  DVWA 2 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
-|      Windows     	| Windows Machine 	| 10.10.0.x/24 	|     Public     	|   Windows-SG   	| Viewing our services 	|
+|      Windows     	| Windows Machine 	| 10.10.0.x/24 	|     Public     	|   Windows-SG   	| Viewing Kibana/DVWA 	|
 |   Amazon Linux EC2  	| Ansible/Docker/Jumpbox 	| 10.10.0.x/24 	|     Public     	|   Jumpbox-SG   	|   Gateway   	|
 
 ### Access Policies
