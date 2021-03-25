@@ -59,50 +59,50 @@ Step 6: Connect to your Public Instance via CMD on your work machine VIA your pu
 
 - Need to be in the folder where your key pair is stored
 
-- ssh -i "OregonKey.pem" ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com
+- ```ssh -i "OregonKey.pem" ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com```
 
 
 
 Step 7: Use another CMD console to import your public key and the ansible container to your public instance
 
-- scp -i "Key" "file to be transferred" "location":/home/"user"
+- ```scp -i "Key" "file to be transferred" "location":/home/"user"```
 
-- scp -i "OregonKey.pem" OregonKey.pem ansible_config.yml ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com:/home/ec2-user
+- ```scp -i "OregonKey.pem" OregonKey.pem ansible_config.yml ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com:/home/ec2-user```
 
 
 
 Step 8: chmod 400 the key on your EC2 instance
 
-- sudo chmod 400 "key"
+- ```sudo chmod 400 "key"```
 
-- sudo chmod 400 OregonKey.pem
+- ```sudo chmod 400 OregonKey.pem```
 
 Step 9: Get Docker on your EC2 instance
 
-sudo yum install docker
+- ```sudo yum install docker
 
 
 
 Step 10: Start docker and verify its running
 
-- sudo service docker start
+- ```sudo service docker start```
 
-- sudo service docker status
+- ```sudo service docker status```
 
 
 Step 11: Pull the cybersecurity ansible container image onto your public instance and verify its there.
 
-- sudo docker pull cyberxsecurity/ansible
+- ```sudo docker pull cyberxsecurity/ansible```
 
-- sudo docker images
+- ```sudo docker images```
 
 
 
 Step 12: Set up the daimon.json file for docker
 
-- cd /etc/docker
+- ```cd /etc/docker```
 
-- sudo nano daemon.json 
+- ```sudo nano daemon.json ```
 
 - Paste the following into the .json and save it
 
@@ -116,26 +116,26 @@ Step 12: Set up the daimon.json file for docker
 ```
 Step 13: Restart docker
 
-< sudo service docker restart
+- ```sudo service docker restart```
 
 
 Step 14: Connect to the docker image pulled previously 
 
-- sudo docker run -ti cyberxsecurity/ansible bash
+- ```sudo docker run -ti cyberxsecurity/ansible bash```
 
-- Should change to root@"container ID" 
+- ```Should change to root@"container ID" ```
 
 Step 15: add the public key and ansible config/playbook to the docker container running from another ec2 terminal in cmd 
 
 - Launch new cmd and ssh into your ec2 instance
 
-- ssh -i "OregonKey.pem" ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com
+- ```ssh -i "OregonKey.pem" ec2-user@ec2-54-68-215-46.us-west-2.compute.amazonaws.com```
 
-- sudo docker ps (This pulls up the active docker containers)
+- ```sudo docker ps``` (This pulls up the active docker containers)
 
-- sudo docker cp OregonKey.pem c98c5b496c89:/root
+- ```sudo docker cp OregonKey.pem c98c5b496c89:/root```
 
-- sudo docker cp ansible_config.yml c98c5b496c89:/root
+- ```sudo docker cp ansible_config.yml c98c5b496c89:/root```
 
 
 
