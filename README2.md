@@ -2,12 +2,10 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram 
 
 
-These files have been tested and used to generate a live ELK deployment on AWS. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
-  - install-elk.yml
+These files have been tested and used to generate a live ELK deployment on AWS. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the ansible_config.yml file may be used to install only certain pieces of it, such as Filebeat.
 
 This document contains the following details:
 - Description of the Topology
@@ -32,13 +30,13 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.10.0.x    | Linux ec2        |
-| DVWA     |Webserver | 10.10.2.x | Ubuntu           |
-| DVWA2    |Webserver |10.10.2.x | Ubuntu           |
-| ELK      |Logger    |10.10.2.x  | Ubuntu           |
-| Windows      |Viewing   |10.10.0.x | Windows          |
+| Operating System 	|       Name      	|    Subnet    	| Access Policy 	| Security Group 	|   Function  	|
+|:----------------:	|:---------------:	|:------------:	|:--------------:	|:--------------:	|:-----------:	|
+|      Ubuntu      	|    ELK Server   	| 10.10.2.x/24 	|     Private    	|  ELK-SG  	|    Server   	|
+|      Ubuntu      	|  DVWA 1 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
+|      Ubuntu      	|  DVWA 2 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
+|      Windows     	| Windows Machine 	| 10.10.0.x/24 	|     Public     	|   Windows-SG   	| Viewing our services 	|
+|   Amazon Linux EC2  	| Ansible/Docker/Jumpbox 	| 10.10.0.x/24 	|     Public     	|   Jumpbox-SG   	|   Gateway   	|
 
 ### Access Policies
 
@@ -49,16 +47,7 @@ ip 10.10.2.x
 ip 10.10.2.x
 
 Machines within the network can only be accessed by SSH protocol for Linux and RDP secure for windows.
-- The Jump Box is the only machine I allowed to access your ELK VM? With the following IP address 10.10.0.27
-
-A summary of the access policies in place can be found in the table below.
-
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | No                  | 10.0.0.x    |
-| DVWA     | NO                  | 10.10.2.x           |
-| DVWA 2   | NO                  | 10.10.2.x          |
-| ELK      | NO                  | 10.10.2.x           |
+- The Jump Box is the only machine accesable by my own home network 
 
 
 ### Elk Configuration
@@ -66,43 +55,12 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration needs to be performed manually, which is advantageous because of automating configuration with Ansible, is this practice saves time, it is easier on the installation process and there will be no trouble shooting during deployment because the scripts and commands work.
 
 The playbook implements the following tasks:
-- _Here is a simple rundown or the ELK installation process TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ... Download corrected install-elk.yml and then copy to Jump Box using the command 
-<scp -i " Ohio Key.pem" install-elk.yml ec2-user@ec2-3-142-43-135.us-east-2.compute.amazonaws.com:/ec2-user
-
-- ... SSH in to Jump Box 
-<ssh -i "Ohio_Key.pem" ec2-user@ec2-3-142-43-135.us-east-2.compute.amazonaws.com
-
-- ... Check Docker status use command 
-<sudo service docker status> if status in not running use 
-<sudo service docker start> to start docker
-- ... Sudo docker run -t -I cyberxsecurity/ansible bash (this will place you in the root )
-- ... open new git or command window and do the following 
-SSH in to Jump box, LS to confirm keys and install-elk.yml and run rolowing command 
-<sudo docker ps > copy the container id 
-<sudo docker cp install-elk.yml <container id>:/root
-<sudo docker cp Ohio Key.pem <container id>:/root
-
-- ... go back to the Jump Box in Root and do the following 
-ls
-install-elk.yml and Ohio Key.pem should appear
-cd /etc/ansible
-nano hosts
-make following changes 
-under [webserver]
-       10.10.2.94
-	  10.10.2.124
-	ADD -[ELK]
-	   10.10.2.31 Save and quit 
-- ... cd ~
-ssh in to ELK run 
-sudo apt-get update 
-sudo apt-get upgrade 
-exit 
-When back in root run following command 
-<ansible-playbook install-elk.yml --key-file Ohio Key.pem
--... Use you RDP machine via AWS and the private ip address from ELK 
-in you running instances, this will allow you to view a working Kibana 
+- _Here is a simple rundown or the ELK installation process 
+- SSH into jumpbox and install and download/run the Docker service. Be sure to pull the correct ansible container for your jumpbox.
+- Run Docker and ssh into your private machines from the ansible container to establish a connection to them and then set your ansible files to allow these private machines to have ansible deploy to them with your playbook.
+- Use the proper commands to copy the playbooks and your public key over to the docker container
+- Using your newly copied playbooks and key, deploy the playbooks
+- Use windows to ensure that your playbooks have deployed
 
 
 
