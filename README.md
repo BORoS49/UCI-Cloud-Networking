@@ -178,11 +178,15 @@ Step 22: Run Elk
 
 
 5. Ensure that elkserver ubuntu instance has been updated and upgraded 
-6. < (sudo apt-get update/upgrade)
+
+< (sudo apt-get update/upgrade)
+
 7. Ensure before running install-elk.yml that you have sshed into the ELK server
 8. Ensure that inbound rules on your ELK server allow for ports 5044, 5061, and 9200 to be open.
 9. Run 
-< ansible-playbook install-elk.yml --key-file=<your key>
+
+< ansible-playbook install-elk.yml --key-file="your key"
+
 11. Connect by copying the private ip address of your ELK server and paste it into your Windows machine and connect via port 5601.
 
 Step 23: CELEBRATE GOOD TIMES CMON
