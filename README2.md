@@ -63,18 +63,12 @@ The playbook implements the following tasks:
 - Use windows to ensure that your playbooks have deployed
 
 
-
-
-
-This is the path so you can see an picture of what Kibana look like (Images/docker_RDP_ELK_Kibana_output.png)
-
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- DWVA 10.10.2.94
-  DVWA2 10.10.2.124
+- DWVA 10.10.2.x
+- DVWA2 10.10.2.x
+- Filebeats 10.10.2.x
 
-We have installed the following Beats on these machines:
-- For this network I have installed Kibana and Filebeat 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
