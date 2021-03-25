@@ -54,7 +54,7 @@ Machines within the network can only be accessed by SSH protocol for Linux and R
 Ansible was used to automate configuration of the ELK machine. No configuration needs to be performed manually, which is advantageous because of automating configuration with Ansible, is this practice saves time, it is easier on the installation process and there will be no trouble shooting during deployment because the scripts and commands work.
 
 The playbook implements the following tasks:
-- _Here is a simple rundown or the ELK installation process 
+- Here is a simple rundown or the ELK installation process 
 - SSH into jumpbox and install and download/run the Docker service. Be sure to pull the correct ansible container for your jumpbox.
 - Run Docker and ssh into your private machines from the ansible container to establish a connection to them and then set your ansible files to allow these private machines to have ansible deploy to them with your playbook.
 - Use the proper commands to copy the playbooks and your public key over to the docker container
@@ -72,18 +72,23 @@ This ELK server is configured to monitor the following machines:
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
-SSH into the control node and follow the steps below:
-- Copy the file to ansible:/root.
+SSH into your jumpbox and follow the steps below:
+- Copy the file to your ansible container.
 - Update the filebeat.yml file to include the ELK ip 
 - Run the playbook, and navigate to Kibana in your windows RDP to check that the installation worked as expected.
 
-The files that were used and include are - filebeat-playbook.yml this file was acquired from a secure credible website written by a trusted source 
-- You have to edit and reconfigure the configuration file. 
-The way I specified which machine to install the ELK server 
-on versus the way in which to install Filebeat on . by navigating to the ansible director while the Is the elk server was more automated by  was done in hosts file and the file beat was configured prior to by changing lines 1106 and making it my 10.10.0.27 and the doing the same to 1806 in the filebeat.yml file prior to importingin to docker.
-- _The url you want to navigate is http://10.10.2.31:5601/ to make sure that elk is working 
+The files that were used and include are: 
+- filebeat-playbook.yml
+- filebeat-configuration.yoml
+- metricbeat-playbook.yml
+- metricbeat-configuration.yml
+- ansible_config.yml
+- install-elk.yml
+- You have to edit and reconfigure the configurations file. 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- The url you want to navigate is your windows ip:5601 to make sure that elk/dvwa is working 
+
+- **Bonus** **Step by Step**
 
 Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
 
