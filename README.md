@@ -28,11 +28,20 @@ Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, 
 
 The CloudFormation built here demonstrates creating a basic network and automatic deployment on AWS that utilizes an ELK server and load-balanced DVWAs for testing, practicing, and learning purposes. 
 
-![Alt text](/..//https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Cloudformation%20stack.png?raw=true "Cloud Formation Stack")
+![Alt text](https://raw.githubusercontent.com/BORoS49/UCI-Cloud-Networking/main/Ansible/Images/Cloudformation%20stack.png?raw=true "Cloud Formation Stack")
+
+![Alt text](https://raw.githubusercontent.com/BORoS49/UCI-Cloud-Networking/main/Ansible/Images/Create%20Stack.png?raw=true "Create Stack")
+
+![Alt text](https://raw.githubusercontent.com/BORoS49/UCI-Cloud-Networking/main/Ansible/Images/Basuc-Network.png?raw=true "Cloud Formation Stack")
+
 
 Step 2: Set IPV4 to auto for both public subnets
 
 - Go to your subnets page, highlight your public subnets, go to actions, click on "Modify auto-assign IP Settings" and then check the box titled "Enable auto-assign public IPv4 address"
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Set%20IPV4.png?raw=true)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Set%20IPV4%202.png?raw=true)
 
 Step 3: Launch Public Amazon Linux EC2 Instance
 
@@ -47,6 +56,16 @@ Step 3: Launch Public Amazon Linux EC2 Instance
 - Configure Security Group (Port 22, SSH)
 
 - Select or create a Key Pair (mine is called "OregonKey.pem")
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Launch%20EC2%20Instance.png?raw=true)
+
+![Alt text](https://user-images.githubusercontent.com/75498072/112550142-2750cd00-8d7c-11eb-8aaa-77132cab1d75.png)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Configuring%20EC2%20Instance.png?raw=true)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/EC2%20Security%20Group.png?raw=true)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Key%20Pair.png?raw=true)
 
 
 Step 4: Setup 2 Ubuntu Private Subnet Instances for the ansible container
