@@ -2,12 +2,19 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+| Operating System 	|       Name      	|    Subnet    	| Access Policy 	| Security Group 	|   Function  	|
+|:----------------:	|:---------------:	|:------------:	|:--------------:	|:--------------:	|:-----------:	|
+|      Ubuntu      	|    ELK Server   	| 10.10.2.x/24 	|     Private    	|  ELK-SG  	|    Server   	|
+|      Ubuntu      	|  DVWA 1 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
+|      Ubuntu      	|  DVWA 2 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Server   	|
+|      Windows     	| Windows Machine 	| 10.10.0.x/24 	|     Public     	|   Windows-SG   	| Viewing our services 	|
+|   Amazon Linux EC2  	| Ansible/Docker/Jumpbox 	| 10.10.0.x/24 	|     Public     	|   Jumpbox-SG   	|   Gateway   	|
+
 
 These files have been tested and used to generate a live ELK deployment on AWS. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the .yml files may be used to install only certain pieces of it, such as Filebeat.
 
 This document contains the following details:
-- Description of the Topologu
+- Description of the Topology
 - Access Policies
 - ELK Configuration
   - Beats in Use
@@ -18,6 +25,10 @@ Step-by-step guide and diagram on setting up a basic cloud network within Amazon
 Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
 
 - Go to https://aws.amazon.com/cloudformation/ and upload your basic network template file. Click next and then launch the network stack according to your template.
+
+The CloudFormation built here demonstrates creating a basic network and automatic deployment on AWS that utilizes an ELK server and load-balanced DVWAs for testing, practicing, and learning purposes. 
+
+![Alt text](/..//https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Cloudformation%20stack.png?raw=true "Cloud Formation Stack")
 
 Step 2: Set IPV4 to auto for both public subnets
 
@@ -198,9 +209,7 @@ Step 22: Run Elk
 
 - Ensure before running install-elk.yml that you have sshed into the ELK server
 - Ensure that inbound rules on your ELK server allow for ports 5044, 5061, and 9200 to be open.
-- Run 
-
-- ```ansible-playbook install-elk.yml --key-file="your key"```
+- Run the following command within our ansible container ```ansible-playbook install-elk.yml --key-file="your key"```
 
 - Connect by copying the private ip address of your ELK server and paste it into your Windows machine and connect via port 5601.
 
