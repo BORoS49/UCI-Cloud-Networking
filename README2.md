@@ -133,6 +133,7 @@ on versus the way in which to install Filebeat on . by navigating to the ansible
 - _The url you want to navigate is http://10.10.2.31:5601/ to make sure that elk is working 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
 Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
 
 - Go to https://aws.amazon.com/cloudformation/ and upload your basic network template file. Click next and then launch the network stack according to your template.
