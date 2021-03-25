@@ -79,7 +79,7 @@ Step 8: chmod 400 the key on your EC2 instance
 
 Step 9: Get Docker on your EC2 instance
 
-- ```sudo yum install docker
+- ```sudo yum install docker```
 
 
 
