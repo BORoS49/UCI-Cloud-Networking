@@ -170,17 +170,20 @@ Step 22: Run Elk
 
 1. Download the install-elk.yml file
 2. Edit contents of install-elk.yml so that "remote_user = ubuntu"
-3. Move install-elk.yml to ansible docker via "sudo docker cp <file> <docker process>:/root"
-4. In docker process (aka ansible), make sure to add (if not there) the following beneath "[webservers]" and the ip addresses in /etc/ansible/hosts:
+3. Move install-elk.yml to ansible docker 
+< "sudo docker cp <file> <docker process>:/root"
+5. In docker process (aka ansible), make sure to add (if not there) the following beneath "[webservers]" and the ip addresses in /etc/ansible/hosts:
 [Elk]
 <Private IPv4 Address of your ELK server>
 
 
-5. Ensure that elkserver ubuntu instance has been updated and upgraded (sudo apt-get update/upgrade)
-6. Ensure before running install-elk.yml that you have sshed into the ELK server
-7. Ensure that inbound rules on your ELK server allow for ports 5044, 5061, and 9200 to be open.
-8. Run ansible-playbook install-elk.yml --key-file=<your key>
-9. Connect by copying the private ip address of your ELK server and paste it into your Windows machine and connect via port 5601.
+5. Ensure that elkserver ubuntu instance has been updated and upgraded 
+6. < (sudo apt-get update/upgrade)
+7. Ensure before running install-elk.yml that you have sshed into the ELK server
+8. Ensure that inbound rules on your ELK server allow for ports 5044, 5061, and 9200 to be open.
+9. Run 
+< ansible-playbook install-elk.yml --key-file=<your key>
+11. Connect by copying the private ip address of your ELK server and paste it into your Windows machine and connect via port 5601.
 
 Step 23: CELEBRATE GOOD TIMES CMON
 
