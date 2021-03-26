@@ -149,6 +149,12 @@ Step 4: Setup 2 Ubuntu Private Subnet Instances for the ansible container
 
 - Launch Instance
 
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Setting%20Up%20Private%20Instances.png?raw=true)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Private%20Instances%20SG.png?raw=true)
+
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Private%20Instance%20State%20before%20launch.png?raw=true)
+
 Step 5: Verify Instances are running
 
 
