@@ -84,9 +84,9 @@ The files that were used and include are:
 - **BE SURE TO CONFIGURE YOUR FILES TO YOUR SPECIFIC INSTANCES/IPs**
 
 
-### **Bonus** **Step by Step**
+## **Bonus** **Step by Step**
 
-Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
+### Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
 
 - Go to https://aws.amazon.com/cloudformation/ and upload your basic network template file. Click next and then launch the network stack according to your template.
 
@@ -99,7 +99,7 @@ The CloudFormation built here demonstrates creating a basic network and automati
 ![Alt text](https://raw.githubusercontent.com/BORoS49/UCI-Cloud-Networking/main/Ansible/Images/Basuc-Network.png?raw=true "Cloud Formation Stack")
 
 
-Step 2: Set IPV4 to auto for both public subnets
+### Step 2: Set IPV4 to auto for both public subnets
 
 - Go to your subnets page, highlight your public subnets, go to actions, click on "Modify auto-assign IP Settings" and then check the box titled "Enable auto-assign public IPv4 address"
 
@@ -107,7 +107,7 @@ Step 2: Set IPV4 to auto for both public subnets
 
 ![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Set%20IPV4%202.png?raw=true)
 
-Step 3: Launch Public Amazon Linux EC2 Instance
+### Step 3: Launch Public Amazon Linux EC2 Instance
 
 - Amazon Linux 2 AMI
 
@@ -132,7 +132,7 @@ Step 3: Launch Public Amazon Linux EC2 Instance
 ![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Key%20Pair.png?raw=true)
 
 
-Step 4: Setup 2 Ubuntu Private Subnet Instances for the ansible container
+### Step 4: Setup 2 Ubuntu Private Subnet Instances for the ansible container
 
 - Ubuntu Server 20.04 LTS (HVM)
 
@@ -152,10 +152,10 @@ Step 4: Setup 2 Ubuntu Private Subnet Instances for the ansible container
 
 ![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Ansible/Images/Private%20Instance%20State%20before%20launch.png?raw=true)
 
-Step 5: Verify Instances are running
+### Step 5: Verify Instances are running
 
 
-Step 6: Connect to your Public Instance via CMD on your work machine VIA your public key for the instance
+### Step 6: Connect to your Public Instance via CMD on your work machine VIA your public key for the instance
 
 - Need to be in the folder where your key pair is stored
 
@@ -163,7 +163,7 @@ Step 6: Connect to your Public Instance via CMD on your work machine VIA your pu
 
 
 
-Step 7: Use another CMD console to import your public key and the ansible container to your public instance
+### Step 7: Use another CMD console to import your public key and the ansible container to your public instance
 
 - ```scp -i "Key" "file to be transferred" "location":/home/"user"```
 
@@ -171,26 +171,26 @@ Step 7: Use another CMD console to import your public key and the ansible contai
 
 
 
-Step 8: chmod 400 the key on your EC2 instance
+### Step 8: chmod 400 the key on your EC2 instance
 
 - ```sudo chmod 400 "key"```
 
 - ```sudo chmod 400 OregonKey.pem```
 
-Step 9: Get Docker on your EC2 instance
+### Step 9: Get Docker on your EC2 instance
 
 - ```sudo yum install docker```
 
 
 
-Step 10: Start docker and verify its running
+### Step 10: Start docker and verify its running
 
 - ```sudo service docker start```
 
 - ```sudo service docker status```
 
 
-Step 11: Pull the cybersecurity ansible container image onto your public instance and verify its there.
+### Step 11: Pull the cybersecurity ansible container image onto your public instance and verify its there.
 
 - ```sudo docker pull cyberxsecurity/ansible```
 
@@ -198,7 +198,7 @@ Step 11: Pull the cybersecurity ansible container image onto your public instanc
 
 
 
-Step 12: Set up the daimon.json file for docker
+### Step 12: Set up the daimon.json file for docker
 
 - ```cd /etc/docker```
 
@@ -214,18 +214,18 @@ Step 12: Set up the daimon.json file for docker
 ]
 }
 ```
-Step 13: Restart docker
+### Step 13: Restart docker
 
 - ```sudo service docker restart```
 
 
-Step 14: Connect to the docker image pulled previously 
+### Step 14: Connect to the docker image pulled previously 
 
 - ```sudo docker run -ti cyberxsecurity/ansible bash```
 
 - ```Should change to root@"container ID" ```
 
-Step 15: add the public key and ansible config/playbook to the docker container running from another ec2 terminal in cmd 
+### Step 15: add the public key and ansible config/playbook to the docker container running from another ec2 terminal in cmd 
 
 - Launch new cmd and ssh into your ec2 instance
 
@@ -239,7 +239,7 @@ Step 15: add the public key and ansible config/playbook to the docker container 
 
 
 
-Step 16: SSH from the ansible container into both private instances and update/upgrade them
+### Step 16: SSH from the ansible container into both private instances and update/upgrade them
 
 - ```ssh -i "OregonKey.pem" ubuntu@10.10.2.32```
 
@@ -257,7 +257,7 @@ Step 16: SSH from the ansible container into both private instances and update/u
 
 - ```exit```
 
-Step 17: Get into the /etc/ansible folder and edit the hosts and ansible.cfg files to allow the private machines to hosts the webservers
+### Step 17: Get into the /etc/ansible folder and edit the hosts and ansible.cfg files to allow the private machines to hosts the webservers
 
 - ```cd /etc/ansible```
 
@@ -265,15 +265,15 @@ Step 17: Get into the /etc/ansible folder and edit the hosts and ansible.cfg fil
 
 - ```nano ansible.cfg``` (Change remote user to ubuntu, "remote_user = ubuntu")
 
-Step 18: Run the ansible playbook from the ~ folder in the container
+### Step 18: Run the ansible playbook from the ~ folder in the container
 
 - ```ansible-playbook ansible_config.yml --key-file OregonKey.pem```
 
-Step 19: Set up a windows instance to connect to DVWA
+### Step 19: Set up a windows instance to connect to DVWA
 
-Step 20: Connect to windows and verify DVWA is running via the private DNS of one of the containers the ansible playbook deployed on
+### Step 20: Connect to windows and verify DVWA is running via the private DNS of one of the containers the ansible playbook deployed on
 
-Step 21: Create Elk Stack Instance
+### Step 21: Create Elk Stack Instance
 
 - Ubunutu
 
@@ -281,7 +281,7 @@ Step 21: Create Elk Stack Instance
 
 - ELK Stack Security Group (ports open are: 22, 80, 5044, 5601, 9200, 9300, 9600)
 
-Step 22: Run Elk
+### Step 22: Run Elk
 
 - Download the install-elk.yml file
 - Edit contents of install-elk.yml so that "remote_user = ubuntu"
@@ -302,4 +302,4 @@ Step 22: Run Elk
 
 - Connect by copying the private ip address of your ELK server and paste it into your Windows machine and connect via port 5601.
 
-Step 23: CELEBRATE GOOD TIMES CMON
+### Step 23: **CELEBRATE GOOD TIMES CMON**
