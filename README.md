@@ -261,7 +261,7 @@ The CloudFormation built here demonstrates creating a basic network and automati
 
 - ```cd /etc/ansible```
 
-- ```nano hosts`````` (Uncomment "Webservers" and add IP addresses of both private instances underneath)
+- ```nano hosts``` (Uncomment "Webservers" and add IP addresses of both private instances underneath)
 
 - ```nano ansible.cfg``` (Change remote user to ubuntu, "remote_user = ubuntu")
 
