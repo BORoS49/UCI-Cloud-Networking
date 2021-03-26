@@ -73,7 +73,7 @@ SSH into your jumpbox and follow the steps below:
 - deploy your filebeat-playbook
 - Use your windows machine to verify everything
 
-The files that were used and include are: 
+The files that were used and included in the ansible folder are: 
 - filebeat-playbook.yml
 - filebeat-configuration.yoml
 - metricbeat-playbook.yml
