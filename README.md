@@ -84,7 +84,7 @@ The files that were used and include are:
 - **BE SURE TO CONFIGURE YOUR FILES TO YOUR SPECIFIC INSTANCES/IPs**
 
 
-**Bonus** **Step by Step**
+### **Bonus** **Step by Step**
 
 Step 1: Use CloudFormation to form a Network Stack: VPC, Subnets, Route Tables, IGW, NAT
 
