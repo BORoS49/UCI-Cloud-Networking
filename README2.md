@@ -19,8 +19,7 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly efficient, in addition to restricting incoming traffic to the network.
-Load balancers will help protect against the aspects of SQL injection and cross site scripting. This Jump Box will provide a high level of security to the databases and webservers by making them inaccessible to the public internet. It will accomplish by using a complicated/generated key or .pem file and using the SSH protocols. The Jump Box will also house and run the needed containers and images to allow the webservers and databases to comminute.
+DVWA is a PHP/MySQL web application that is damn vulnerable. Its main goals are to be an aid for security professionals to test their skills and tools in a legal environment, help web developers better understand the processes of securing web applications and aid teachers/students to teach/learn web application security in a class room environment. It will accomplish by using a complicated/generated key or .pem file and using the SSH protocols. The Jump Box will also house and run the needed containers and images to allow the webservers and databases to communicate.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system traffic.
 - When Filebeat is deployed it will monitor the network and simplify the data logs to be reviewed at a later time/date
@@ -41,11 +40,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box and RDP machines can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: The two webservers would be considered whitelisted
-ip 10.10.2.x
-ip 10.10.2.x
-
-Machines within the network can only be accessed by SSH protocol for Linux and RDP secure for windows.
+- Only the Jump Box and RDP machines can accept connections from the Internet. Access to the private machines can only happen through the jumpbox.
+- Machines within the network can only be accessed by SSH protocol for Linux and RDP secure for windows.
 - The Jump Box is the only machine accesable by my own home network 
 
 
