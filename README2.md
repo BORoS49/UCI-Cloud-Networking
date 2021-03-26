@@ -51,15 +51,11 @@ Machines within the network can only be accessed by SSH protocol for Linux and R
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration needs to be performed manually, which is advantageous because of automating configuration with Ansible, is this practice saves time, it is easier on the installation process and there will be no trouble shooting during deployment because the scripts and commands work.
+Ansible was used to automate configuration of the DVWA/ELK machines. No manual installation or configuration is needed outside of minor changes to the configuration files for your specific IP's or instances
 
 The playbook implements the following tasks:
-- Here is a simple rundown or the ELK installation process 
-- SSH into jumpbox and install and download/run the Docker service. Be sure to pull the correct ansible container for your jumpbox.
-- Run Docker and ssh into your private machines from the ansible container to establish a connection to them and then set your ansible files to allow these private machines to have ansible deploy to them with your playbook.
-- Use the proper commands to copy the playbooks and your public key over to the docker container
-- Using your newly copied playbooks and key, deploy the playbooks
-- Use windows to ensure that your playbooks have deployed
+- downloading and and configuring DVWA/Elk to our target machines
+- deploying the webserver
 
 
 ### Target Machines & Beats
@@ -73,9 +69,13 @@ This ELK server is configured to monitor the following machines:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into your jumpbox and follow the steps below:
-- Copy the file to your ansible container.
-- Update the filebeat.yml file to include the ELK ip 
-- Run the playbook, and navigate to Kibana in your windows RDP to check that the installation worked as expected.
+- Copy the necessary files to your jumpbox
+- deploy your ansible container
+- configure your container and config files
+- deploy your ansible-playbook
+- deploy your elk-playbook
+- deploy your filebeat-playbook
+- Use your windows machine to verify everything
 
 The files that were used and include are: 
 - filebeat-playbook.yml
@@ -84,9 +84,8 @@ The files that were used and include are:
 - metricbeat-configuration.yml
 - ansible_config.yml
 - install-elk.yml
-- You have to edit and reconfigure the configurations file. 
 
-- The url you want to navigate is your windows ip:5601 to make sure that elk/dvwa is working 
+- **BE SURE TO CONFIGURE YOUR FILES TO YOUR SPECIFIC INSTANCES/IPs**
 
 - **Bonus** **Step by Step**
 
