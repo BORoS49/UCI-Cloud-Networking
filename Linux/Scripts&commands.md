@@ -32,7 +32,7 @@ Scripts/commands **I** used in order
 - ```sudo apt-get upgrade```
 - ```exit```
 - ```cd /etc/ansible```
-- ```nano hosts``````
+- ```nano hosts```
 - ```nano ansible.cfg```
 - ```ansible-playbook ansible_config.yml --key-file OregonKey.pem```
 - ```sudo docker cp <file> <docker process>:/root```
