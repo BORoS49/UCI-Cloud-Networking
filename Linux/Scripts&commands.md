@@ -36,4 +36,3 @@ Scripts/commands **I** used in order
 - ```nano ansible.cfg```
 - ```ansible-playbook ansible_config.yml --key-file OregonKey.pem```
 - ```sudo docker cp <file> <docker process>:/root```
-- 
