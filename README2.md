@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted below.
 
-
+![Alt text](https://github.com/BORoS49/UCI-Cloud-Networking/blob/main/Diagrams/Network%20Diagram.png?raw=true)
 
 These files have been tested and used to generate a live ELK deployment on AWS. They can be used to either recreate the entire deployment pictured above.
 
