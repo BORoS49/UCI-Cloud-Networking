@@ -23,7 +23,7 @@ Load balancing ensures that the application will be highly efficient, in additio
 Load balancers will help protect against the aspects of SQL injection and cross site scripting. This Jump Box will provide a high level of security to the databases and webservers by making them inaccessible to the public internet. It will accomplish by using a complicated/generated key or .pem file and using the SSH protocols. The Jump Box will also house and run the needed containers and images to allow the webservers and databases to comminute.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the logs and system traffic.
-- When Filebeat is deployed it will monitor the network simplify the data logs to be reviewed at a later time/date
+- When Filebeat is deployed it will monitor the network and simplify the data logs to be reviewed at a later time/date
 - When metricbeat is added it will record the statistical data from the OS, such as CPU usage and RAM usage, and record services running on the server. Although metricbeats is not deployed in my network this is a highly recommended practice.   
 
 The configuration details of each machine may be found below.
@@ -31,9 +31,9 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 | Operating System 	|       Name      	|    Subnet    	| Access Policy 	| Security Group 	|   Function  	|
 |:----------------:	|:---------------:	|:------------:	|:--------------:	|:--------------:	|:-----------:	|
-|      Ubuntu      	|    ELK Server   	| 10.10.2.x/24 	|     Private    	|  ELK-SG  	|    Web Server   	|
-|      Ubuntu      	|  DVWA 1 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Web Server   	|
-|      Ubuntu      	|  DVWA 2 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Web Server   	|
+|      Ubuntu t3 medium     	|    ELK Server   	| 10.10.2.x/24 	|     Private    	|  ELK-SG  	|    Web Server   	|
+|      Ubuntu t2 micro    	|  DVWA 1 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Web Server   	|
+|      Ubuntu t2 micro     	|  DVWA 2 Server  	| 10.10.2.x/24 	|     Private    	|  WebServer-SG  	|    Web Server   	|
 |      Windows     	| Windows Machine 	| 10.10.0.x/24 	|     Public     	|   Windows-SG   	| Viewing Kibana/DVWA 	|
 |   Amazon Linux EC2  	| Ansible/Docker/Jumpbox 	| 10.10.0.x/24 	|     Public     	|   Jumpbox-SG   	|   Gateway   	|
 
